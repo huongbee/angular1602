@@ -2,3 +2,32 @@
 <div>
   {{hero.name}}
 </div>
+<ul>
+  <li *ngFor="let hero of heroes">
+    {{hero.name}} - {{hero.age}}
+  </li>
+</ul>
+<hr>
+<ul>
+  <li *ngFor="let hero of heroes; index as i">
+    {{i+1}}: Name: {{hero.name}} - Age: {{hero.age}}
+  </li>
+</ul>
+<div *ngIf="false; else elseBlock">
+  <p>Yes</p>
+</div>
+<ng-template #elseBlock>
+  <p>No</p>
+</ng-template>
+<hr>
+
+<div *ngIf="true then ifContent; else elseContent"></div>
+<ng-template #elseContent>
+  <p>No</p>
+</ng-template>
+<ng-template #ifContent>
+    <p>Yes</p>
+</ng-template>
+
+
+

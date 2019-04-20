@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero.class';
+import { Hero, listHero } from '../hero.class';
 
 @Component({
   selector: 'app-hero',
@@ -10,11 +10,14 @@ import { Hero } from '../hero.class';
 export class HeroComponent implements OnInit {
 
   public name: string;
-  public hero = new Hero('Nguyen Trai', 45);
+  public hero = new Hero('Nguyen Trai', 34);
+  public heroes = [];
+
   constructor() { }
 
   ngOnInit() {
     this.name = 'Teo';
+    this.heroes = listHero;
   }
 
 }
