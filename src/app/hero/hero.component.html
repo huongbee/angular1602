@@ -10,12 +10,19 @@
 <hr>
 <ul>
   <li *ngFor="let hero of heroes; index as i">
-    {{i+1}}: Name: {{hero.name}} - Age: {{hero.age}}
+    <div *ngIf="hero.age >= 40 then ifBlock; else elseBlock"></div>
+    <ng-template #ifBlock>
+      <p style="color:red">{{i+1}}: Name: {{hero.name}} - Age: {{hero.age}}</p>
+    </ng-template>
+    <ng-template #elseBlock>
+      <p style="color:blue">{{i+1}}: Name: {{hero.name}} - Age: {{hero.age}}</p>
+    </ng-template>
   </li>
 </ul>
 <div *ngIf="false; else elseBlock">
   <p>Yes</p>
 </div>
+
 <ng-template #elseBlock>
   <p>No</p>
 </ng-template>
@@ -29,5 +36,34 @@
     <p>Yes</p>
 </ng-template>
 
+
+<!-- Data binding -->
+<div id='{{myID}}'>123</div>
+
+<!-- Property binding -->
+<div [id]=myID >123</div>
+<input type="text" [disabled]=isDisabled placeholder="Name">
+
+<!-- Style binding -->
+<p [style.color]="colorRed">123456</p>
+<p [style.color]="1==2 ? 'red' : 'blue' ">1234</p>
+
+<ul>
+  <li *ngFor="let hero of heroes; index as i">
+    <p [style.color]=" hero.age >=40 ? 'red' : 'blue' ">{{i+1}}: Name: {{hero.name}} - Age: {{hero.age}}</p>
+  </li>
+</ul>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 

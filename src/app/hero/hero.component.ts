@@ -13,6 +13,11 @@ export class HeroComponent implements OnInit {
   public hero = new Hero('Nguyen Trai', 34);
   public heroes = [];
 
+  myID = 'my-id';
+  isDisabled = false;
+
+  colorRed = '2312';
+
   constructor() { }
 
   ngOnInit() {
