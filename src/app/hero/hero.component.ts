@@ -33,6 +33,20 @@ export class HeroComponent implements OnInit {
     'text-bold': true
   };
 
+  myName: string;
+  isShow = false;
+  buttonText = 'Show';
+  showMyName() {
+    if (!this.isShow) {
+      this.myName = 'KPT';
+      this.buttonText = 'Hide';
+    } else {
+      this.myName = '';
+      this.buttonText = 'Show';
+    }
+    this.isShow = !this.isShow;
+  }
+
   constructor() { }
 
   ngOnInit() {
