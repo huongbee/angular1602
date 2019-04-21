@@ -7,3 +7,9 @@ p{
     font-size: 20px;
     color: blueviolet
 }
+.text-success{
+    color: green
+}
+.text-bold{
+    font-weight: bold
+}

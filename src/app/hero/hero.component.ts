@@ -18,6 +18,21 @@ export class HeroComponent implements OnInit {
 
   colorRed = '2312';
 
+  myStyle = {
+    color: 'violet',
+    'font-size': '20px',
+    textTransform : 'uppercase',
+    backgroundColor : '#f3f3f3'
+  };
+
+  successClass = 'text-success';
+
+  isError = true;
+  myClass = {
+    'text-success': !this.isError,
+    'text-bold': true
+  };
+
   constructor() { }
 
   ngOnInit() {
