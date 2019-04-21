@@ -51,6 +51,9 @@ export class HeroComponent implements OnInit {
   getValueInput(input) {
     // this.txtName = input.value;
   }
+  onKeyUp(input) {
+
+  }
 
   constructor() { }
 

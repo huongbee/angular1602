@@ -72,10 +72,14 @@
 <!-- <div>{{txtName}}</div> -->
 <hr>
 
-<input #myInput02 type="text" placeholder="Enter your name" >
+<input #myInput02 type="text" 
+(keyup)="onKeyUp(myInput02)"placeholder="Enter your name">
 <div>{{myInput02.value}}</div>
+<hr>
 
-
+<!-- two way binding -->
+<input [(ngModel)]="myInput03" type="text" placeholder="Enter your name">
+<div>{{myInput03}}</div>
 
 
 
