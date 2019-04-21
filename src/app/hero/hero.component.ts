@@ -47,6 +47,11 @@ export class HeroComponent implements OnInit {
     this.isShow = !this.isShow;
   }
 
+  // txtName = '';
+  getValueInput(input) {
+    // this.txtName = input.value;
+  }
+
   constructor() { }
 
   ngOnInit() {

@@ -65,6 +65,19 @@
 
 <button (click)="showMyName()">{{buttonText}}</button>
 <p>{{myName}}</p>
+<hr>
+<input #myInput type="text" placeholder="Enter your name" >
+<button (click)="getValueInput(myInput)">Get Name</button>
+<div>{{myInput.value}}</div>
+<!-- <div>{{txtName}}</div> -->
+<hr>
+
+<input #myInput02 type="text" placeholder="Enter your name" >
+<div>{{myInput02.value}}</div>
+
+
+
+
 
 
 <br>
