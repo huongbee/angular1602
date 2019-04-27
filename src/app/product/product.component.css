@@ -4,3 +4,14 @@
 .button a:first-child{
     margin-right: 10px
 }
+.name h5{
+    width: 80%;
+    float: left;
+}
+.name p{
+    width: 20%;
+    float: left;
+    text-align: right;
+    color: red;
+    font-size: 25px
+}
