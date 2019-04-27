@@ -1,0 +1,6 @@
+.button a{
+    width: calc((100% - 10px)/2);
+}
+.button a:first-child{
+    margin-right: 10px
+}
