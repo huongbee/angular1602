@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
     {id: 2, name: 'Macbook Pro', price: 40000000, wishlist: false},
     {id: 3, name: 'Apple Watch', price: 30000000, wishlist: true}
   ];
+  isShowForm = false;
   constructor() { }
 
   ngOnInit() {
