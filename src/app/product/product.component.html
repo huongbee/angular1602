@@ -2,33 +2,24 @@
   <br><br>
   <div class="row justify-content-center">
     <div class="col-6">
-        <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Name</h5>
-              <p class="card-text">Price</p>
-              <div class="button">
-                  <a href="#" class="btn btn-primary">Add to Wishlish</a>
-                  <!-- <a href="#" class="btn btn-warning">Remove to Wishlish</a> -->
-                  <a href="#" class="btn btn-danger">Remove</a>
-              </div>
-            </div>
-        </div>
-        <br>
-        <div class="card">
+        <div class="card" style="margin:20px" *ngFor="let product of listProduct" >
             <div class="card-body">
               <div class="name">
-                  <h5 class="card-title">Name</h5>
-                  <p><i class="fas fa-heart"></i></p>
+                  <h5 class="card-title">{{product.name}}</h5>
+                  <p *ngIf="product.wishlist"><i class="fas fa-heart"></i></p>
               </div>
               
-              <p class="card-text">Price</p>
+              <p class="card-text">{{product.price | number }}</p>
               <div class="button">
-                  <!-- <a href="#" class="btn btn-primary">Add to Wishlish</a> -->
-                  <a href="#" class="btn btn-warning">Remove to Wishlish</a>
+                  <a *ngIf="!product.wishlist" href="#" class="btn btn-primary" 
+                  (click)="addToWishlist(product.id)"
+                  >Add to Wishlist</a>
+                  <a *ngIf="product.wishlist" href="#" class="btn btn-warning">Remove to Wishlist</a>
                   <a href="#" class="btn btn-danger">Remove</a>
               </div>
             </div>
         </div>
+        
     </div>
   </div>
 </div>
