@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, Validator, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -14,9 +15,31 @@ export class ProductComponent implements OnInit {
     {id: 3, name: 'Apple Watch', price: 30000000, wishlist: true}
   ];
   isShowForm = false;
-  constructor() { }
+  productForm: FormGroup;
 
+  constructor(private fb: FormBuilder) { }
   ngOnInit() {
+    this.productForm = this.fb.group({
+      name: ['', [
+        Validators.required,
+        Validators.minLength(6)
+      ]],
+      price: ['', [
+        Validators.required,
+        Validators.pattern('^[0-9]+$')
+      ]],
+    });
+  }
+  addProduct() {
+    const { name, price } = this.productForm.value;
+    const id = Math.round(Math.random() * 100);
+    const product: Product = { id, name, price, wishlist: false };
+    this.listProduct.unshift( product );
+    // hide form
+    this.toogleForm();
+    // clear data on form
+    this.productForm.get('name').setValue('');
+    this.productForm.get('price').setValue('');
   }
   setWishlist(id) {
     const product = this.listProduct.find(p => p.id === id);
@@ -28,11 +51,14 @@ export class ProductComponent implements OnInit {
       this.listProduct.splice(product, 1);
     }
   }
+  toogleForm() {
+    this.isShowForm = !this.isShowForm;
+  }
 
 }
 interface Product {
   id: number;
   name: string;
   price: number;
-  wishlist: boolean;
+  wishlist?: boolean;
 }

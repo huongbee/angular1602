@@ -24,7 +24,7 @@ export class MyFormComponent implements OnInit {
     password : new FormControl('', [
       Validators.required,
       Validators.minLength(6),
-      // Validators.pattern(/([0-9]+)/)
+      Validators.pattern('^[0-9]+$')
     ]),
     re_password : new FormControl('', [
       Validators.required,
