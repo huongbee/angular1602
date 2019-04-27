@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-my-form',
@@ -19,11 +19,12 @@ export class MyFormComponent implements OnInit {
   signInForm = new FormGroup({
     email : new FormControl('', [
       Validators.required,
-      Validators.email
+      isGmail
     ]),
     password : new FormControl('', [
       Validators.required,
-      Validators.minLength(6)
+      Validators.minLength(6),
+      // Validators.pattern(/([0-9]+)/)
     ])
   });
 
@@ -34,4 +35,15 @@ export class MyFormComponent implements OnInit {
   onSignIn() {
     console.log(this.signInForm.value);
   }
+  checkInputValid(inputName) {
+    const input = this.signInForm.get(inputName);
+    return input.touched && input.invalid;
+  }
+
+}
+function isGmail(control: AbstractControl): ValidationErrors | null {
+  if ((control.value as string).trim().endsWith('@gmail.com')) {
+    return null; // input valid
+  }
+  return { error: 'email invalid' };
 }
