@@ -17,6 +17,13 @@
             <small class="text-danger">* Password invalid</small>
           </div>
         </div>
+        <div class="form-group">
+          <label>Re-enter Password</label>
+          <input type="password" class="form-control" placeholder="Re-enter password" required formControlName="re_password">
+          <div *ngIf="!passwordMustMatch()">
+            <small class="text-danger">* Password not match</small>
+          </div>
+        </div>
         <!-- <div formGroupName="fulladdress">
           <div class="form-group">
             <label>Province</label>

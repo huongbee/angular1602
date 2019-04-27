@@ -25,6 +25,10 @@ export class MyFormComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       // Validators.pattern(/([0-9]+)/)
+    ]),
+    re_password : new FormControl('', [
+      Validators.required,
+      Validators.minLength(6)
     ])
   });
 
@@ -38,6 +42,14 @@ export class MyFormComponent implements OnInit {
   checkInputValid(inputName) {
     const input = this.signInForm.get(inputName);
     return input.touched && input.invalid;
+  }
+  passwordMustMatch() {
+    const pw = this.signInForm.get('password');
+    const rePw = this.signInForm.get('re_password');
+    if (pw.valid && rePw.touched && pw.value !== rePw.value) {
+      return false; // not match
+    }
+    return true;
   }
 
 }
