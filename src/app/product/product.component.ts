@@ -55,6 +55,15 @@ export class ProductComponent implements OnInit {
   toogleForm() {
     this.isShowForm = !this.isShowForm;
   }
+  get productsFilter(): Array<Product> {
+    if (this.filterProduct === 'WISHLIST') {
+      return this.listProduct.filter(p => p.wishlist);
+    }
+    if (this.filterProduct === 'NONE_WISHLIST') {
+      return this.listProduct.filter(p => !p.wishlist);
+    }
+    return this.listProduct;
+  }
 
 }
 interface Product {
