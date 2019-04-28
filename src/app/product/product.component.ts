@@ -16,6 +16,7 @@ export class ProductComponent implements OnInit {
   ];
   isShowForm = false;
   productForm: FormGroup;
+  filterProduct = 'SHOW_ALL';
 
   constructor(private fb: FormBuilder) { }
   ngOnInit() {
