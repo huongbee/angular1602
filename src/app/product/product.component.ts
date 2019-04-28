@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validator, FormBuilder, Validators } from '@angular/forms';
 import { Product, listProduct } from './product.class';
+import { ProductFilterComponent } from './product-filter.component';
 
 @Component({
   selector: 'app-product',
@@ -9,26 +10,17 @@ import { Product, listProduct } from './product.class';
 })
 export class ProductComponent implements OnInit {
 
-  filterProduct = 'SHOW_ALL';
+  @ViewChild(ProductFilterComponent) productFilterComponent: ProductFilterComponent;
 
-  constructor(private fb: FormBuilder) { }
+  constructor() { }
   ngOnInit() {
   }
-  setWishlist(id) {
-    const product = listProduct.find(p => p.id === id);
-    product.wishlist = !product.wishlist;
-  }
-  removeProduct(id) {
-    const product = listProduct.findIndex(p => p.id === id);
-    if (product >= 0) {
-      listProduct.splice(product, 1);
-    }
-  }
+  
   get productsFilter(): Array<Product> {
-    if (this.filterProduct === 'WISHLIST') {
+    if (this.productFilterComponent.filterProduct === 'WISHLIST') {
       return listProduct.filter(p => p.wishlist);
     }
-    if (this.filterProduct === 'NONE_WISHLIST') {
+    if (this.productFilterComponent.filterProduct === 'NONE_WISHLIST') {
       return listProduct.filter(p => !p.wishlist);
     }
     return listProduct;

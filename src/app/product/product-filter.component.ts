@@ -7,3 +7,4 @@ import { Component } from '@angular/core';
 export class ProductFilterComponent {
     filterProduct = 'SHOW_ALL';
 }
+

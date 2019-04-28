@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from './product.class';
+import { Product, listProduct } from './product.class';
 
 @Component({
     selector: 'app-product-item',
@@ -8,5 +8,15 @@ import { Product } from './product.class';
 })
 export class ProductItemComponent {
     @Input() product: Product;
+    setWishlist(id) {
+        const product = listProduct.find(p => p.id === id);
+        product.wishlist = !product.wishlist;
+    }
+    removeProduct(id) {
+        const product = listProduct.findIndex(p => p.id === id);
+        if (product >= 0) {
+            listProduct.splice(product, 1);
+        }
+    }
 }
 
