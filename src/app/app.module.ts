@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { ProductComponent } from './product/product.component';
+import { ProductFormComponent } from './product/product-form.component';
+import { ProductFilterComponent } from './product/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { ProductComponent } from './product/product.component';
     HeroComponent,
     MyFormComponent,
     ProductComponent,
+    ProductFormComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,

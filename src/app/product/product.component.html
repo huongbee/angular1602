@@ -1,38 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-        <div style="margin:20px" >
-          <button  *ngIf="!isShowForm" class="btn btn-primary" (click)="toogleForm()">+</button>
-          <form *ngIf="isShowForm" 
-            [formGroup]="productForm"
-            (ngSubmit)="addProduct()"
-           >
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" formControlName="name">
-            </div>
-            <div class="form-group">
-              <label>Price</label>
-              <input type="text" class="form-control" placeholder="Price" formControlName="price">
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-success" value="Add"
-                [disabled]="productForm.invalid"
-                >
-                <input type="button" class="btn btn-danger" value="Cancel" style="margin-left:10px" 
-                (click)="toogleForm()">
-              </div>
-          </form>
-        </div>
-        <p>{{filterProduct}}</p>
-        <div style="margin:20px" >
-          <select class="form-control" 
-          [(ngModel)]="filterProduct">
-            <option value="SHOW_ALL">SHOW ALL</option>
-            <option value="WISHLIST">WISHLIST</option>
-            <option value="NONE_WISHLIST">NONE WISHLIST</option>
-          </select>
-        </div>
+
+        <app-product-form></app-product-form>
+
+        <app-product-filter></app-product-filter>
         <div style="margin:20px" *ngFor="let product of productsFilter">
           <div class="card">
             <div class="card-body">
