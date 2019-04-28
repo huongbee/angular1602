@@ -5,8 +5,7 @@ import { Component, Input } from '@angular/core';
     template: `
         <h3>Child component</h3>
         <div>
-            <p>pipe</p>
-            <p>{{productInChild | json }}</p>
+            <p>{{productInChild.name}}</p>
         </div>
     `,
 })

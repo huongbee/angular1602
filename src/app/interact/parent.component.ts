@@ -4,15 +4,14 @@ import { Component } from '@angular/core';
     selector: 'app-parent',
     template: `
         <h3>Parent component</h3>
-        <app-child [productInChild]="product">
+        <app-child
+            *ngFor="let p of products"
+            [productInChild]="p"
+         >
         </app-child>
     `,
 })
 export class ParentComponent {
-    // product = {
-    //     name: 'Macbook Pro Retina',
-    //     price: 45000000
-    // };
     products = [
         {
             name: 'Macbook Pro Retina',
