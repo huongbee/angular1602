@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validator, FormBuilder, Validators } from '@angular/forms';
+import { Product } from './product.class';
 
 @Component({
   selector: 'app-product',
@@ -65,10 +66,4 @@ export class ProductComponent implements OnInit {
     return this.listProduct;
   }
 
-}
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  wishlist?: boolean;
 }

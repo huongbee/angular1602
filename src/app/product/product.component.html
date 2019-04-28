@@ -5,29 +5,11 @@
         <app-product-form></app-product-form>
 
         <app-product-filter></app-product-filter>
-        <div style="margin:20px" *ngFor="let product of productsFilter">
-          <div class="card">
-            <div class="card-body">
-              <div class="name">
-                  <h5 class="card-title">{{product.name}}</h5>
-                  <p *ngIf="product.wishlist"><i class="fas fa-heart"></i></p>
-              </div>
-              
-              <p class="card-text">{{product.price | number }}</p>
-              <div class="button">
-                  <a *ngIf="!product.wishlist" class="btn btn-primary" 
-                  (click)="setWishlist(product.id)"
-                  >Add to Wishlist</a>
-                  <a *ngIf="product.wishlist" class="btn btn-warning"
-                  (click)="setWishlist(product.id)"
-                  >Remove to Wishlist</a>
-                  <a class="btn btn-danger" 
-                  (click)="removeProduct(product.id)"
-                  >Remove</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        <app-product-item 
+        *ngFor="let product of productsFilter"
+        [product]="product"
+        ></app-product-item>
         
     </div>
   </div>

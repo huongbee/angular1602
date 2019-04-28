@@ -8,6 +8,8 @@ import { MyFormComponent } from './my-form/my-form.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFormComponent } from './product/product-form.component';
 import { ProductFilterComponent } from './product/product-filter.component';
+import { ProductItemComponent } from './product/product-item.component';
+
 import { ParentComponent } from './interact/parent.component';
 import { ChildComponent } from './interact/child.component';
 
@@ -20,6 +22,7 @@ import { ChildComponent } from './interact/child.component';
     ProductComponent,
     ProductFormComponent,
     ProductFilterComponent,
+    ProductItemComponent,
     ParentComponent,
     ChildComponent
   ],

@@ -1,0 +1,23 @@
+<div  style="margin:20px">
+    <div class="card">
+        <div class="card-body">
+            <div class="name">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p *ngIf="product.wishlist"><i class="fas fa-heart"></i></p>
+            </div>
+            
+            <p class="card-text">{{product.price | number }}</p>
+            <div class="button">
+                <a *ngIf="!product.wishlist" class="btn btn-primary" 
+                (click)="setWishlist(product.id)"
+                >Add to Wishlist</a>
+                <a *ngIf="product.wishlist" class="btn btn-warning"
+                (click)="setWishlist(product.id)"
+                >Remove to Wishlist</a>
+                <a class="btn btn-danger" 
+                (click)="removeProduct(product.id)"
+                >Remove</a>
+            </div>
+        </div>
+    </div>
+</div>
