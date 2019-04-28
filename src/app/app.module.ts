@@ -8,6 +8,9 @@ import { MyFormComponent } from './my-form/my-form.component';
 import { ProductComponent } from './product/product.component';
 import { ProductFormComponent } from './product/product-form.component';
 import { ProductFilterComponent } from './product/product-filter.component';
+import { ParentComponent } from './interact/parent.component';
+import { ChildComponent } from './interact/child.component';
+
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { ProductFilterComponent } from './product/product-filter.component';
     MyFormComponent,
     ProductComponent,
     ProductFormComponent,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
