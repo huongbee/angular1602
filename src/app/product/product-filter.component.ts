@@ -8,7 +8,8 @@ export class ProductFilterComponent {
     filterProduct = 'SHOW_ALL';
     @Output() sendFilterModeEmit = new EventEmitter();
 
-    sendFilterMode() {
+    sendFilterMode(data) {
+        this.filterProduct = data.target.value;
         this.sendFilterModeEmit.emit(this.filterProduct);
     }
 }
