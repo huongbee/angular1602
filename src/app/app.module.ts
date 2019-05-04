@@ -12,7 +12,10 @@ import { ProductItemComponent } from './product/product-item.component';
 
 import { ParentComponent } from './interact/parent.component';
 import { ChildComponent } from './interact/child.component';
+import { CounterComponent } from './counter/counter.component';
 
+import { counterReducer } from './ngrxstore/reducers';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -24,13 +27,15 @@ import { ChildComponent } from './interact/child.component';
     ProductFilterComponent,
     ProductItemComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({ counter: counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
