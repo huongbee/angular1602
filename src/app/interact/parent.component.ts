@@ -7,12 +7,13 @@ import { Component } from '@angular/core';
         <div style="margin-left:50px">{{value}}</div>
         <app-child
             (sendToParent)="getData($event)"
+            [dataFromParent]="value"
         ></app-child>
     `,
 })
 export class ParentComponent {
     // sendToParent : prop at ChildComponent
-    value = 'A';
+    value = 0;
     getData(data) {
         this.value = data;
     }
