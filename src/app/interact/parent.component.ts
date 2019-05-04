@@ -4,26 +4,16 @@ import { Component } from '@angular/core';
     selector: 'app-parent',
     template: `
         <h3>Parent component</h3>
+        <div style="margin-left:50px">{{value}}</div>
         <app-child
-            *ngFor="let p of products"
-            [productInChild]="p"
-         >
-        </app-child>
+            (sendToParent)="getData($event)"
+        ></app-child>
     `,
 })
 export class ParentComponent {
-    products = [
-        {
-            name: 'Macbook Pro Retina',
-            price: 45000000
-        },
-        {
-            name: 'Iphone XS',
-            price: 25000000
-        },
-        {
-            name: 'Macbook Air',
-            price: 15000000
-        }
-    ];
+    // sendToParent : prop at ChildComponent
+    value = 'A';
+    getData(data) {
+        this.value = data;
+    }
 }

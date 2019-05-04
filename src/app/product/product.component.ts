@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   constructor() { }
   ngOnInit() {
   }
-  
+
   get productsFilter(): Array<Product> {
     if (this.productFilterComponent.filterProduct === 'WISHLIST') {
       return listProduct.filter(p => p.wishlist);

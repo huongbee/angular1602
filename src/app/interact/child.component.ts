@@ -1,14 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'app-child',
     template: `
         <h3>Child component</h3>
-        <div>
-            <p>{{productInChild.name}}</p>
-        </div>
+        <button (click)="send()">Send</button>
     `,
 })
 export class ChildComponent {
-    @Input() productInChild;
+    @Output() sendToParent = new EventEmitter();
+
+    send() {
+        this.sendToParent.emit('KPT');
+    }
 }
