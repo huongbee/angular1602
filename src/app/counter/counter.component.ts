@@ -5,9 +5,14 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-counter',
   template: `
-    {{ numberInit }}
+    <p> {{ numberInit }}</p>
   `,
-  styleUrls: ['./counter.component.css']
+  styles: [`
+    p{
+      margin-left:100px;
+      margin-top:10px
+    }
+  `]
 })
 export class CounterComponent implements OnInit {
 

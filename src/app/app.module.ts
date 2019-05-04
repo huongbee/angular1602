@@ -13,6 +13,7 @@ import { ProductItemComponent } from './product/product-item.component';
 import { ParentComponent } from './interact/parent.component';
 import { ChildComponent } from './interact/child.component';
 import { CounterComponent } from './counter/counter.component';
+import { CounterChildComponent } from './counter/counter-child.component';
 
 import { counterReducer } from './ngrxstore/reducers';
 import { StoreModule } from '@ngrx/store';
@@ -28,7 +29,8 @@ import { StoreModule } from '@ngrx/store';
     ProductItemComponent,
     ParentComponent,
     ChildComponent,
-    CounterComponent
+    CounterComponent,
+    CounterChildComponent
   ],
   imports: [
     BrowserModule,
