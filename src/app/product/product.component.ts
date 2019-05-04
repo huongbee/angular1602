@@ -10,17 +10,30 @@ import { ProductFilterComponent } from './product-filter.component';
 })
 export class ProductComponent implements OnInit {
 
-  @ViewChild(ProductFilterComponent) productFilterComponent: ProductFilterComponent;
-
+  // @ViewChild(ProductFilterComponent) productFilterComponent: ProductFilterComponent;
+  filterMode: string;
   constructor() { }
   ngOnInit() {
   }
 
-  get productsFilter(): Array<Product> {
-    if (this.productFilterComponent.filterProduct === 'WISHLIST') {
+  // get productsFilter(): Array<Product> {
+  //   if (this.productFilterComponent.filterProduct === 'WISHLIST') {
+  //     return listProduct.filter(p => p.wishlist);
+  //   }
+  //   if (this.productFilterComponent.filterProduct === 'NONE_WISHLIST') {
+  //     return listProduct.filter(p => !p.wishlist);
+  //   }
+  //   return listProduct;
+  // }
+  getFilterMode(mode) {
+    this.filterMode = mode;
+  }
+
+  get productsFilter() {
+    if (this.filterMode === 'WISHLIST') {
       return listProduct.filter(p => p.wishlist);
     }
-    if (this.productFilterComponent.filterProduct === 'NONE_WISHLIST') {
+    if (this.filterMode === 'NONE_WISHLIST') {
       return listProduct.filter(p => !p.wishlist);
     }
     return listProduct;

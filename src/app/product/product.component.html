@@ -4,7 +4,10 @@
 
         <app-product-form></app-product-form>
 
-        <app-product-filter></app-product-filter>
+        <app-product-filter
+          (sendFilterModeEmit)="getFilterMode($event)"
+        ></app-product-filter>
+        {{filterMode}}
         
         <app-product-item 
         *ngFor="let product of productsFilter"

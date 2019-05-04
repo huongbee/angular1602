@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 @Component({
     selector: 'app-product-filter',
     templateUrl: './product-filter.component.html',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
 })
 export class ProductFilterComponent {
     filterProduct = 'SHOW_ALL';
+    @Output() sendFilterModeEmit = new EventEmitter();
+
+    sendFilterMode() {
+        this.sendFilterModeEmit.emit(this.filterProduct);
+    }
 }
 
