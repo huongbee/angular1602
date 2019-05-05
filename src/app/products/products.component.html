@@ -1,7 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-        <app-products-item></app-products-item>
+        <app-products-item
+        *ngFor="let p of products"
+        [product]="p"
+        ></app-products-item>
     </div>
   </div>
 </div>

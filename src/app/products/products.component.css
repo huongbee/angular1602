@@ -1,0 +1,26 @@
+.button a{
+    width: calc((100% - 10px)/2);
+}
+.button a:first-child{
+    margin-right: 10px
+}
+.name h5{
+    width: 80%;
+    float: left;
+}
+.name p{
+    width: 20%;
+    float: left;
+    text-align: right;
+    color: red;
+    font-size: 25px
+}
+.card{ 
+    margin-bottom: 10px
+}
+.card-text{
+    clear: both;
+}
+a{
+    color: #fff!important
+}
