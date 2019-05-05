@@ -1,0 +1,23 @@
+<div style="margin:20px" >
+<button class="btn btn-primary">+</button>
+<form  
+[formGroup]="productForm"
+(ngSubmit)="addProduct()"
+>
+<div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" placeholder="Name" formControlName="name">
+</div>
+<div class="form-group">
+    <label>Price</label>
+    <input type="text" class="form-control" placeholder="Price" formControlName="price">
+</div>
+<div class="form-group">
+    <input type="submit" class="btn btn-success" value="Add"
+    [disabled]="productForm.invalid"
+    >
+    <input type="button" class="btn btn-danger" value="Cancel" style="margin-left:10px" 
+    >
+    </div>
+</form>
+</div>

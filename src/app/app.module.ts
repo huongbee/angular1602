@@ -18,6 +18,12 @@ import { CounterChildComponent } from './counter/counter-child.component';
 import { counterReducer } from './ngrxstore/reducers';
 import { StoreModule } from '@ngrx/store';
 
+import { ProductsComponent } from './products/products.component';
+import { ProductsFormComponent } from './products/products-form.component';
+import { ProductsFilterComponent } from './products/products-filter.component';
+import { ProductsItemComponent } from './products/products-item.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +36,11 @@ import { StoreModule } from '@ngrx/store';
     ParentComponent,
     ChildComponent,
     CounterComponent,
-    CounterChildComponent
+    CounterChildComponent,
+    ProductsComponent,
+    ProductsFormComponent,
+    ProductsFilterComponent,
+    ProductsItemComponent,
   ],
   imports: [
     BrowserModule,
