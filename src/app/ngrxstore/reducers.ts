@@ -1,4 +1,5 @@
 import { Action } from '@ngrx/store';
+import { listProduct } from '../product.class';
 
 const initCounter = 0;
 export function counterReducer(state: number = initCounter, action: Action) {
@@ -12,6 +13,10 @@ export function counterReducer(state: number = initCounter, action: Action) {
         return initCounter;
     }
     return state;
+}
+
+export function productReducer(state, action) {
+
 }
 
 
