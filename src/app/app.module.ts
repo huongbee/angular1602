@@ -15,7 +15,7 @@ import { ChildComponent } from './interact/child.component';
 import { CounterComponent } from './counter/counter.component';
 import { CounterChildComponent } from './counter/counter-child.component';
 
-import { counterReducer, productReducer } from './ngrxstore/reducers';
+import { counterReducer, productReducer, formAddProductReducer, filterReducer } from './ngrxstore/reducers';
 import { StoreModule } from '@ngrx/store';
 
 import { ProductsComponent } from './products/products.component';
@@ -49,7 +49,9 @@ import { ProductsItemComponent } from './products/products-item.component';
     ReactiveFormsModule,
     StoreModule.forRoot({
       counter: counterReducer,
-      products: productReducer
+      products: productReducer,
+      toogleForm: formAddProductReducer,
+      filterMode: filterReducer
     })
   ],
   providers: [],

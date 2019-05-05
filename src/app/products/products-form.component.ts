@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-products-form',
@@ -8,9 +9,9 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 })
 export class ProductsFormComponent implements OnInit {
     productForm: FormGroup;
-
-    constructor(private fb: FormBuilder) {
-
+    isShowForm: boolean;
+    constructor(private fb: FormBuilder, private store: Store<boolean>) {
+        this.store.select('toogleForm').subscribe(f => this.isShowForm = f);
     }
     ngOnInit(): void {
         this.productForm = this.fb.group({
