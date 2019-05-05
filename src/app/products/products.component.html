@@ -2,8 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-6">
         <app-products-form></app-products-form>
+        <app-products-filter></app-products-filter>
         <app-products-item
-        *ngFor="let p of products"
+        *ngFor="let p of productFilter"
         [product]="p"
         ></app-products-item>
     </div>

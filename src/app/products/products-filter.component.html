@@ -1,5 +1,7 @@
 <div style="margin:20px" >
-<select class="form-control" >
+<select class="form-control"
+(change)="changeFilterMode($event)"
+>
     <option value="SHOW_ALL">SHOW ALL</option>
     <option value="WISHLIST">WISHLIST</option>
     <option value="NONE_WISHLIST">NONE WISHLIST</option>

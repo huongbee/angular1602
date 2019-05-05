@@ -36,7 +36,9 @@ export function formAddProductReducer(state: boolean = false, action): boolean {
     if (action.type === 'TOOGLE') { return action.status; }
     return state;
 }
-export function filterReducer(state: string = 'SHOW_ALL', action: Action): string {
+
+export function filterReducer(state: string = 'SHOW_ALL', action: any): string {
+    if (action.type === 'SET_FILTER_MODE') { return action.mode; }
     return state;
 }
 
