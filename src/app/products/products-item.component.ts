@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product, listProduct } from '../product.class';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-products-item',
@@ -8,5 +9,14 @@ import { Product, listProduct } from '../product.class';
 })
 export class ProductsItemComponent {
     @Input() product: Product;
+    constructor(private store: Store<Product[]>) {
+
+    }
+    removeProduct(idProduct) {
+        this.store.dispatch({
+            type: 'REMOVE_PRODUCT',
+            id: idProduct
+        });
+    }
 }
 

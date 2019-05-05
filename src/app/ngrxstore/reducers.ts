@@ -15,7 +15,12 @@ export function counterReducer(state: number = initCounter, action: Action) {
     return state;
 }
 
-export function productReducer(state: Product[] = listProduct, action: Action) {
+// listProduct: pure
+export function productReducer(state: Product[] = listProduct, action: any) {
+    if (action.type === 'REMOVE_PRODUCT') {
+        return state.filter(p => p.id !== action.id);
+    }
+    
     return state;
 }
 
