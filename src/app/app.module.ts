@@ -24,6 +24,8 @@ import { ProductsFilterComponent } from './products/products-filter.component';
 import { ProductsItemComponent } from './products/products-item.component';
 
 import { RequestApiComponent } from './request-api/request-api.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { RequestApiComponent } from './request-api/request-api.component';
       products: productReducer,
       toogleForm: formAddProductReducer,
       filterMode: filterReducer
-    })
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
