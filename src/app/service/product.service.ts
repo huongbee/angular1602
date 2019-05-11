@@ -12,7 +12,10 @@ export class ProductService {
         .then((result: any) => result.products)
         .catch(error => error);
     }
-    addProduct() {
-
+    addProduct( name: string, price: number): Promise<Product> {
+        return this.http.post('http://localhost:3000/add-product', { name, price } )
+        .toPromise()
+        .then((result: any) => result.product)
+        .catch(error => error);
     }
 }

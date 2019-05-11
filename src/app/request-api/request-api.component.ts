@@ -46,9 +46,8 @@ export class RequestApiComponent implements OnInit {
     }
     addProduct() {
         const { name, price } = this.productForm.value;
-        this.http.post('http://localhost:3000/add-product', { name, price} )
-        .toPromise()
+        this.productService.addProduct(name, price)
         .then(result => console.log(result))
-        .catch(error => console.log(error));
+        .catch(err => console.error(err));
     }
 }
