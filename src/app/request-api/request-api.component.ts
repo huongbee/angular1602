@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../product.class';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ProductService } from '../service/product.service';
 
 @Component({
     selector: 'app-request-api',
+    // providers: [],
     template: `
         <div class="container">
-            <h2>Hello</h2>
+            <h2>List Products</h2>
             <ul>
                 <li *ngFor="let p of products"> {{p.name}} - {{p.price | number}}</li>
             </ul>
@@ -26,7 +28,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class RequestApiComponent implements OnInit {
     products: Product[];
     productForm: FormGroup;
-    constructor(private http: HttpClient, private fb: FormBuilder) {
+    constructor(private http: HttpClient, private fb: FormBuilder, private productService: ProductService) {
         this.productForm = this.fb.group({
             name: ['', Validators.required],
             price: ['0', Validators.required]
@@ -38,12 +40,15 @@ export class RequestApiComponent implements OnInit {
         // .then(result => console.log(result))
         // .catch(error => console.log(error));
 
-        this.http.get('http://localhost:3000/product')
+        this.productService.getAllProducts()
+        .then(listProduct => this.products = listProduct)
+        .catch(err => console.error(err));
+    }
+    addProduct() {
+        const { name, price } = this.productForm.value;
+        this.http.post('http://localhost:3000/add-product', { name, price} )
         .toPromise()
-        .then((response: any) => {
-            console.log(response);
-            this.products = response.products;
-        })
+        .then(result => console.log(result))
         .catch(error => console.log(error));
     }
 }

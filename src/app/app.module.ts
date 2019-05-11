@@ -25,7 +25,7 @@ import { ProductsItemComponent } from './products/products-item.component';
 
 import { RequestApiComponent } from './request-api/request-api.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ProductService } from './service/product.service';
 
 
 @NgModule({
@@ -60,7 +60,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
