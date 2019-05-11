@@ -23,6 +23,8 @@ import { ProductsFormComponent } from './products/products-form.component';
 import { ProductsFilterComponent } from './products/products-filter.component';
 import { ProductsItemComponent } from './products/products-item.component';
 
+import { RequestApiComponent } from './request-api/request-api.component';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { ProductsItemComponent } from './products/products-item.component';
     ProductsFormComponent,
     ProductsFilterComponent,
     ProductsItemComponent,
+    RequestApiComponent
   ],
   imports: [
     BrowserModule,
