@@ -12,10 +12,13 @@ export class ProductService {
         .then((result: any) => result.products)
         .catch(error => error);
     }
-    addProduct( name: string, price: number): Promise<Product> {
+    addProduct( name: string, price: number): Promise<Product> | any {
         return this.http.post('http://localhost:3000/add-product', { name, price } )
         .toPromise()
-        .then((result: any) => result.product)
+        .then((result: any) => {
+            if (result.success) {return result.product; }
+            return Promise.reject(result.message);
+        })
         .catch(error => error);
     }
 }

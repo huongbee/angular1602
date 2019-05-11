@@ -48,6 +48,6 @@ export class RequestApiComponent implements OnInit {
         const { name, price } = this.productForm.value;
         this.productService.addProduct(name, price)
         .then(result => console.log(result))
-        .catch(err => console.error(err));
+        .catch(err => console.error(err.message));
     }
 }
