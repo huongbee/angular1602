@@ -6,6 +6,11 @@ import { Product } from '../product.class';
 export class ProductService {
     constructor(private http: HttpClient) {
     }
+
+        // this.http.get('https://api.openweathermap.org/data/2.5/find?appid=01cc37655736835b0b75f2b395737694&q=Saigon')
+        // .toPromise()
+        // .then(result => console.log(result))
+        // .catch(error => console.log(error));
     getAllProducts(): Promise<Product[]> {
         return this.http.get('http://localhost:3000/product')
         .toPromise()

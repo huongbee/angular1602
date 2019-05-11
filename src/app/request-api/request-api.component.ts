@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Product } from '../product.class';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProductService } from '../service/product.service';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-request-api',
@@ -28,26 +28,28 @@ import { ProductService } from '../service/product.service';
 export class RequestApiComponent implements OnInit {
     products: Product[];
     productForm: FormGroup;
-    constructor(private http: HttpClient, private fb: FormBuilder, private productService: ProductService) {
+    constructor(private fb: FormBuilder, private productService: ProductService, private store: Store<Product[]>) {
         this.productForm = this.fb.group({
             name: ['', Validators.required],
             price: ['0', Validators.required]
         });
     }
     ngOnInit() {
-        // this.http.get('https://api.openweathermap.org/data/2.5/find?appid=01cc37655736835b0b75f2b395737694&q=Saigon')
-        // .toPromise()
-        // .then(result => console.log(result))
-        // .catch(error => console.log(error));
-
         this.productService.getAllProducts()
-        .then(listProduct => this.products = listProduct)
+        .then(listProduct => {
+            // this.products = listProduct;
+            this.store.dispatch({type: 'INIT', products: listProduct});
+            this.store.select('products')
+            .subscribe(p => this.products = p);
+        })
         .catch(err => console.error(err));
     }
     addProduct() {
         const { name, price } = this.productForm.value;
         this.productService.addProduct(name, price)
-        .then(result => console.log(result))
+        .then(result => {
+            this.store.dispatch({type: 'ADD_PRODUCT', product: result});
+        })
         .catch(err => console.error(err.message));
     }
 }
